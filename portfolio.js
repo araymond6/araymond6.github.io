@@ -2,11 +2,12 @@ main();
 
 function main()
 {
+	const canvas = document.getElementById("GameCanvas")
 	const scene = new THREE.Scene();
-	const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	const camera = new THREE.PerspectiveCamera( 75, canvas.width / canvas.height, 0.1, 1000 );
 
-	const renderer = new THREE.WebGLRenderer();
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	const renderer = new THREE.WebGLRenderer({canvas: canvas});
+	renderer.setSize( canvas.width, canvas.height );
 	renderer.setAnimationLoop( animate );
 	document.body.appendChild( renderer.domElement );
 
